@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\qund\\source\\repos\\repos\\BlitzkriegWPF\\BlitzkriegWPF\\BlitzkriegWPF.csproj": {}
+    "C:\\Users\\qund\\source\\repos\\BlitzkriegWPF\\BlitzkriegWPF\\BlitzkriegWPF.csproj": {}
   },
   "projects": {
-    "C:\\Users\\qund\\source\\repos\\repos\\BlitzkriegWPF\\BlitzkriegWPF\\BlitzkriegWPF.csproj": {
-      "version": "1.0.0",
+    "C:\\Users\\qund\\source\\repos\\BlitzkriegWPF\\BlitzkriegWPF\\BlitzkriegWPF.csproj": {
+      "version": "0.1.0-alpha",
       "restore": {
-        "projectUniqueName": "C:\\Users\\qund\\source\\repos\\repos\\BlitzkriegWPF\\BlitzkriegWPF\\BlitzkriegWPF.csproj",
+        "projectUniqueName": "C:\\Users\\qund\\source\\repos\\BlitzkriegWPF\\BlitzkriegWPF\\BlitzkriegWPF.csproj",
         "projectName": "BlitzkriegWPF",
-        "projectPath": "C:\\Users\\qund\\source\\repos\\repos\\BlitzkriegWPF\\BlitzkriegWPF\\BlitzkriegWPF.csproj",
+        "projectPath": "C:\\Users\\qund\\source\\repos\\BlitzkriegWPF\\BlitzkriegWPF\\BlitzkriegWPF.csproj",
         "packagesPath": "C:\\Users\\qund\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\qund\\source\\repos\\repos\\BlitzkriegWPF\\BlitzkriegWPF\\obj\\",
+        "outputPath": "C:\\Users\\qund\\source\\repos\\BlitzkriegWPF\\BlitzkriegWPF\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -51,6 +51,20 @@
         "net10.0-windows": {
           "framework": "net10.0-windows7.0",
           "targetAlias": "net10.0-windows",
+          "dependencies": {
+            "Microsoft.Data.Sqlite.Core": {
+              "target": "Package",
+              "version": "[10.0.12, )"
+            },
+            "SQLitePCLRaw.bundle_green": {
+              "target": "Package",
+              "version": "[2.1.11, )"
+            },
+            "SQLitePCLRaw.lib.e_sqlite3": {
+              "target": "Package",
+              "version": "[3.53.3, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -361,6 +375,11 @@
             "System.Xml.XPath": "(,4.3.32767]",
             "System.Xml.XPath.XDocument": "(,5.0.32767]"
           }
+        }
+      },
+      "runtimes": {
+        "win-x64": {
+          "#import": []
         }
       }
     }

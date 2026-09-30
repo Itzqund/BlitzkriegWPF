@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BlitzkriegWPF")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7d0cd53d24bd0ed4e59364c3a963bfe152aef1db")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f8e1073681e3fc0e75c1ea849ea24ab9c04e9daa")]
 [assembly: System.Reflection.AssemblyProductAttribute("BlitzkriegWPF")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BlitzkriegWPF")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

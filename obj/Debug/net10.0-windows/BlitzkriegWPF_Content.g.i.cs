@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("languages/strings.ru.xaml")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("blitzkriegdb.db")]
 
 

@@ -2,7 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:sys="clr-namespace:System;assembly=mscorlib">
     <sys:String x:Key="Str_Menu">Меню</sys:String>
-    <sys:String x:Key="Str_Saves">Сохранения</sys:String>
+    <sys:String x:Key="Str_Saves">История</sys:String>
     <sys:String x:Key="Str_Guide">Гайд</sys:String>
     <sys:String x:Key="Str_Settings">Настройки</sys:String>
     <sys:String x:Key="Str_Theme">Тема</sys:String>

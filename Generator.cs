@@ -1,61 +1,48 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
 using System.Text.RegularExpressions;
 
 namespace BlitzkriegWPF
 {
-    static class Generator
+    public static class Generator
     {
-        private static int[] SortAndSplitStartPoses(string input)
+        public static Blitzkrieg Generate(string input)
+        {
+            var startPoses = ParseStartPoses(input);
+            var numbers = new[] { 0 }.Concat(startPoses).Append(100).ToArray();
+            var runs = new List<BlitzkriegRun>();
+            int stage = 1;
+
+            for (int left = numbers.Length - 2; left > 0; left--, stage++)
+            {
+                runs.Add(new BlitzkriegRun { Run = $"Stage {stage}" });
+
+                for (int from = left, to = numbers.Length - 1; from >= 0; from--, to--)
+                    runs.Add(new BlitzkriegRun { Run = $"{numbers[from]} - {numbers[to]}" });
+            }
+
+            runs.Add(new BlitzkriegRun { Run = $"Stage {stage}" });
+            runs.Add(new BlitzkriegRun { Run = "0 - 100" });
+
+            var result = new Blitzkrieg();
+            result.Runs.AddRange(runs);
+            return result;
+        }
+
+        private static int[] ParseStartPoses(string input)
         {
             if (string.IsNullOrWhiteSpace(input))
                 return Array.Empty<int>();
 
-            var uniqueNumbers = new SortedSet<int>();
-
-            foreach (Match match in Regex.Matches(input, @"-?\d+"))
-                if (int.TryParse(match.Value, out int num) && num >= 1 && num <= 99)
-                    uniqueNumbers.Add(num);
-
-            return uniqueNumbers.ToArray();
-        }
-
-        // Генератор блицкрига
-        public static void GenerateBlitzkrieg(string sourceStartposes)
-        {
-            int[] startPoses = SortAndSplitStartPoses(sourceStartposes);
-
-            int[] numbers = new int[startPoses.Length + 2];
-            numbers[0] = 0;
-            Array.Copy(startPoses, 0, numbers, 1, startPoses.Length);
-            numbers[numbers.Length - 1] = 100;
-
-            StringBuilder runsList = new StringBuilder();
-            int stage = 1;
-            int len = numbers.Length;
-            int leftBorder = len - 2;
-
-            while (leftBorder > 0)
-            {
-                runsList.Append($"Stage {stage}\n");
-                int k = leftBorder;
-                int j = len - 1;
-
-                while (k >= 0)
-                {
-                    runsList.Append($"{numbers[k]} - {numbers[j]}\n");
-                    k--;
-                    j--;
-                }
-
-                leftBorder--;
-                stage++;
-            }
-
-            runsList.Append($"Stage {stage}\n0 - 100");
-            string[] runs = runsList.ToString().Split("\n");
-            DBManager.AddBlitzkeig(new Blitzkrieg(runs, new bool[runs.Length], new int[runs.Length], new string[runs.Length]));
+            return Regex.Matches(input, @"-?\d+")
+                .Cast<Match>()
+                .Select(m => int.TryParse(m.Value, out int n) && n >= 1 && n <= 99 ? (int?)n : null)
+                .Where(n => n.HasValue)
+                .Select(n => n.Value)
+                .Distinct()
+                .OrderBy(n => n)
+                .ToArray();
         }
     }
 }
