@@ -1,0 +1,11 @@
+# Visual Studio / .NET build artifacts
+.vs/
+bin/
+obj/
+*.user
+*.suo
+
+# Local application database (not source-controlled)
+BlitzkriegDB.db
+BlitzkriegDB.db-shm
+BlitzkriegDB.db-wal
